@@ -12,19 +12,19 @@ provider "azurerm" {
   features {
 
   }
-  subscription_id = "a3adf20e-4966-4afb-b717-4de1baae6db1" # Add your subscription ID here (found in Azure Portal) - Or use Windows environment variable AZURE_SUBSCRIPTION_ID / MacOS/Linux environment variable AZURE_SUBSCRIPTION_ID
+  subscription_id = "7a3c6854-0fe1-42eb-b5b9-800af1e53d70" # Add your subscription ID here (found in Azure Portal) - Or use Windows environment variable AZURE_SUBSCRIPTION_ID / MacOS/Linux environment variable AZURE_SUBSCRIPTION_ID
 }
 
 
-resource "azurerm_resource_group" "rg-sa" {
-  name     = "example-resources"
+resource "azurerm_resource_group" "rg-sa-vbs" {
+  name     = "example-resources-vbs"
   location = "West Europe"
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "timdmsdfds"
-  resource_group_name      = azurerm_resource_group.rg-sa.name
-  location                 = azurerm_resource_group.rg-sa.location
+  name                     = "vbsdmsdfds"
+  resource_group_name      = azurerm_resource_group.rg-sa-vbs.name
+  location                 = azurerm_resource_group.rg-sa-vbs.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
