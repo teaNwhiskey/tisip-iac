@@ -1,4 +1,7 @@
-/*variable "kortnavn" {
+/*
+Denne brukes ikke lengere av stacks, da det er dev/prod som setter den.
+
+variable "kortnavn" {
   description = "Ditt unike kortnavn. Brukes som prefiks i alle ressursnavn."
   type        = string
   # Ingen default – dette MÅ settes bevisst av hver enkelt student
@@ -26,6 +29,7 @@ variable "location" {
   default     = "norwayeast" # eller overstyr i terraform.tfvars
 }
 
+//Finner ikke at vi er instruert å lage denne noe sted, men koden knekker uten.
 variable "resource_group_name" { 
   description = "Navnet på ressursgruppen som skal brukes for alle ressurser"
   type = string 

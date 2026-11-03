@@ -1,0 +1,36 @@
+/*
+Denne brukes ikke lengere av stacks, da det er dev/prod som setter den.
+
+variable "kortnavn" {
+  description = "Ditt unike kortnavn. Brukes som prefiks i alle ressursnavn."
+  type        = string
+  # Ingen default – dette MÅ settes bevisst av hver enkelt student
+
+  validation {
+    condition     = can(regex("^[a-z0-9]{3,8}$", var.kortnavn))
+    error_message = "kortnavn må være 3-8 tegn og kun inneholde små bokstaver og tall."
+  }
+}*/
+
+variable "project" {
+  description = "Kort prosjektnavn brukt i ressursnavn"
+  type        = string
+  default     = "iac"
+
+  validation {
+    condition     = length(var.project) <= 15
+    error_message = "Prosjektnavnet kan ikke være lengre enn 15 tegn."
+  }
+}
+
+variable "location" {
+  description = "Azure-region for ressursene"
+  type        = string
+  default     = "norwayeast" # eller overstyr i terraform.tfvars
+}
+
+//Finner ikke at vi er instruert å lage denne noe sted, men koden knekker uten.
+variable "resource_group_name" { 
+  description = "Navnet på ressursgruppen som skal brukes for alle ressurser"
+  type = string 
+}

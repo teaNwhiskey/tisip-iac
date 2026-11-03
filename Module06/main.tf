@@ -1,25 +1,27 @@
 terraform {
+  required_version = ">= 1.16.0"
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 4.0"
+      version = "~> 5.4"
     }
   }
+
+  backend "azurerm" {} # tom – fylles ved init
 }
 
 provider "azurerm" {
   features {}
 }
 
-//Resource group med kortnavn og prosjekt som navn
 resource "azurerm_resource_group" "main" {
-  name = "${var.kortnavn}-${var.project}-rg"
+  name     = "${var.kortnavn}-${var.project}-rg"
   location = var.location
 }
 
-//Hente nettverks modul fra modules
 module "network" {
-  source              = "../modules/network"
+  source              = "./modules/network"
   project             = var.project
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
