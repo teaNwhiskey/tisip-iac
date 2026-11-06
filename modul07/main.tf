@@ -15,6 +15,15 @@ provider "azurerm" {
   features {}
 }
 
+locals {
+  common_tags = {
+    owner      = var.kortnavn
+    course     = "iac"
+    module     = "modul7"
+    managed_by = "pipeline"
+  }
+}
+
 resource "azurerm_resource_group" "main" {
   name     = "${var.kortnavn}-${var.project}-rg"
   location = var.location
