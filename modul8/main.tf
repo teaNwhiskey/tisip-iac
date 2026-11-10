@@ -30,7 +30,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 module "network" {
-  source = "git::https://github.com/teaNwhiskey/tisip-iac.git//modules/network?ref=network-v1.0.0"
+  source = "git::https://github.com/teaNwhiskey/tisip-iac.git//modules/network?ref=network-v1.1.0"
 
   project             = var.project
   location            = var.location
