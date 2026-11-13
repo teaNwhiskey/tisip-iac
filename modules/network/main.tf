@@ -36,11 +36,10 @@ resource "azurerm_network_security_group" "this" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "*"
+    source_address_prefix      = var.ssh_source_prefix
     destination_address_prefix = "*"
   }
 }
-//source_address_prefix      = var.ssh_source_prefix
 
 resource "azurerm_subnet_network_security_group_association" "this" {
   subnet_id                 = azurerm_subnet.this.id
